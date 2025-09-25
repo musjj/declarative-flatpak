@@ -96,10 +96,7 @@ in
       '';
     };
     overrides = mkOption {
-      type = pipe anything [
-        attrsOf
-        attrsOf
-      ];
+      type = type = with types; attrsOf (attrsOf (attrsOf (either str (listOf str))));
       default = { };
       example = literalExpression ''
         services.flatpak.overrides = {
